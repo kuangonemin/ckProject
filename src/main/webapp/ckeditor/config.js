@@ -10,7 +10,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.language = 'zh-cn'; config.uiColor = '#f7f5f4';
 	config.width = '99.7%';
 	if (config.height == ''){
-		config.height = '400px';
+		config.height = '900px';
 	}
 	config.removePlugins = 'elementspath,resize'; // 移除编辑器底部状态栏显示的元素路径和调整编辑器大小的按钮
 	config.allowedContent = false; // 是否允许使用源码模式进行编辑

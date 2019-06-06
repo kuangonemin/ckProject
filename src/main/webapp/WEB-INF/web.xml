@@ -75,6 +75,16 @@
   </filter-mapping>
   <!-- ckfinder文件上传配置 end -->
 
+  <!-- 查看CKFinder的图片 -->
+  <servlet>
+    <servlet-name>cKFinderFilesServlet</servlet-name>
+    <servlet-class>com.kuang.ckproject.ckservlet.CKFinderFilesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cKFinderFilesServlet</servlet-name>
+    <url-pattern>/userfiles/*</url-pattern>
+  </servlet-mapping>
+
   <welcome-file-list>
     <welcome-file>index.htm</welcome-file>
   </welcome-file-list>
