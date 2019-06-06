@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="$!web.contextPath/static/jquery-1.6.2.js"></script>
+	<script src="$!web.contextPath/ckeditor/ckeditor.js"></script>
+	<script src="$!web.contextPath/ckfinder/ckfinder.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		//var basePath = $!request.getScheme()+"://"+ $!request.getServerName()+":"+ $!request.getServerPort() + $!request.getContextPath();
+		window.onload = function() {
+			var editor = CKEDITOR.replace( 'description');
+			CKFinder.setupCKEditor(editor, "http://localhost:8080/ckProject/ckfinder/");
+		};
+	</script>
+	<h1>hello world</h1>
+	<form>
+		<textarea name="description" id="description"></textarea>
+	</form>
+</body>
+</html>

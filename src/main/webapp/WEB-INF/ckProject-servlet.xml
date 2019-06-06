@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	    http://www.springframework.org/schema/aop
+	    http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<context:component-scan base-package="com.*" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
+	<!--开启AOP自动代理-->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
+	<bean id="velocityCongfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="WEB-INF/view" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="viewResolver"
+		  class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+		<property name="viewClass" value="com.kuang.ckproject.utils.VelocityToolsView"/>
+		<property name="requestContextAttribute" value="web"/>
+		<property name="contentType" value="text/html;charset=utf-8"/>
+		<property name="exposeSpringMacroHelpers" value="true"/>
+		<property name="exposeRequestAttributes" value="true"/>
+		<property name="exposeSessionAttributes" value="true"/>
+		<property name="allowSessionOverride" value="true"/>
+		<property name="allowRequestOverride" value="true"/>
+		<!--<property name="toolboxConfigLocation" value="/WEB-INF/tools.xml" />-->
+		<property name="suffix" value=".html"/>
+	</bean>
+
+	<beans profile="dev">
+		<context:property-placeholder location="classpath:config.properties" ignore-unresolvable="true" />
+	</beans>
+</beans>
