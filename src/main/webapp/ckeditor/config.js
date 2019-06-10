@@ -43,7 +43,7 @@ CKEDITOR.editorConfig = function( config ) {
 // 上传文件按钮(标签)
 	config.filebrowserUploadUrl ='/ckProject/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files';
 // 上传图片按钮(标签)
-	config.filebrowserImageUploadUrl ='/ckProject/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images';
+	config.filebrowserImageUploadUrl ='http://localhost:8080/ckProject/uploadImg.htm';
 // 上传Flash按钮(标签)
 	config.filebrowserFlashUploadUrl ='/ckProject/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash';
 
