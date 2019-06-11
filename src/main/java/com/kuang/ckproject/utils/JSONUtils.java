@@ -6,7 +6,7 @@ import net.sf.json.JSONObject;
 
 /**
  * @Author: kuangxiang
- * @Description:
+ * @Description: 将map转成json
  * @Date: Create in 9:32 2019/6/10
  * @Modified By:
  */

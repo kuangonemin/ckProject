@@ -8,7 +8,7 @@ import org.springframework.util.StringUtils;
 
 /**
  * @Author: kuangxiang
- * @Description:
+ * @Description: 返回Json格式的信息给CKeditor
  * @Date: Create in 9:06 2019/6/10
  * @Modified By:
  */

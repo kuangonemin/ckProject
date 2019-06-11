@@ -5,8 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kuang.ckproject.utils.CommUtil;
-
 /**
  * @Author: kuangxiang
  * @Description:
@@ -18,8 +16,6 @@ public class CkController {
 
 	@RequestMapping("/ck.htm")
 	public String ck(HttpServletRequest request) {
-		request.setAttribute("webPath", CommUtil.getURL(request));
-		request.setAttribute("request", request);
 		return "ck";
 	}
 }
