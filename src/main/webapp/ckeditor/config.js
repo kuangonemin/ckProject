@@ -37,13 +37,13 @@ CKEDITOR.editorConfig = function( config ) {
 	// 上传文件时浏览服务文件夹
 	config.filebrowserBrowseUrl = '/ckProject/ckfinder/ckfinder.html';
 // 上传图片时浏览服务文件夹
-	config.filebrowserImageBrowseUrl ='/ckProject/ckfinder/ckfinder.html?Type=Images';
+	//config.filebrowserImageBrowseUrl ='/ckfinder/ckfinder.html?Type=Images';
 // 上传Flash时浏览服务文件夹
 	config.filebrowserFlashBrowseUrl ='/ckProject/ckfinder/ckfinder.html?Type=Flash';
 // 上传文件按钮(标签)
 	config.filebrowserUploadUrl ='/ckProject/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files';
 // 上传图片按钮(标签)
-	config.filebrowserImageUploadUrl ='http://localhost:8080/ckProject/uploadImg.htm';
+	//config.filebrowserImageUploadUrl ='http://localhost:8080/ckProject/uploadImg.htm';
 // 上传Flash按钮(标签)
 	config.filebrowserFlashUploadUrl ='/ckProject/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash';
 

@@ -11,13 +11,49 @@
 	<script type="text/javascript">
 		//var basePath = $!request.getScheme()+"://"+ $!request.getServerName()+":"+ $!request.getServerPort() + $!request.getContextPath();
 		window.onload = function() {
-			var editor = CKEDITOR.replace( 'description');
-			CKFinder.setupCKEditor(editor, "http://localhost:8080/ckProject/ckfinder/");
+			var editor = CKEDITOR.replace( 'description',{
+				// 上传文件时浏览服务文件夹
+			filebrowserBrowseUrl:'$!web.contextPath/ckfinder/ckfinder.html',
+			// 上传图片时浏览服务文件夹
+			filebrowserImageBrowseUrl:"$!web.contextPath/ckfinder/ckfinder.html?Type=Images",
+			// 上传Flash时浏览服务文件夹
+			filebrowserFlashBrowseUrl:'$!web.contextPath/ckfinder/ckfinder.html?Type=Flash',
+			// 上传文件按钮(标签)
+			filebrowserUploadUrl:'$!web.contextPath/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files',
+			// 上传图片按钮(标签)
+			filebrowserImageUploadUrl:'$!web.contextPath/uploadImg.htm',
+			// 上传Flash按钮(标签)
+			filebrowserFlashUploadUrl:'$!web.contextPath/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
+			});
+			CKFinder.setupCKEditor(editor, "$!web.contextPath/ckfinder/");
 		};
+
+		function BrowseServer() {
+			var finder = new CKFinder();
+			finder.basePath = '$!web.contextPath/ckfinder/';
+			finder.selectActionFunction = SetFileField; //当选中图片时执行的函数
+			finder.popup();//调用窗口
+		}
+		//文件选中时执行
+		//fileUrl所选中文件的路径
+		function SetFileField(fileUrl) {
+			$("#xFilePath").val(fileUrl);
+			$("#uploadImg").attr("src",fileUrl);
+		}
 	</script>
 	<h1>hello world</h1>
+	<h1>$!request.contextPath</h1>
 	<form>
 		<textarea name="description" id="description"></textarea>
 	</form>
+
+	<div>
+		<img src="" id="uploadImg" width="90px" height="90px" />
+		<video controls="controls">
+			<source src="/ckProject/userfiles/files/oceans%20(1).mp4" type="video/ogg" />
+		</video>
+		<input type="text" id="xFilePath" readOnly/>
+		<input type="button" value="上 传" onclick="BrowseServer()" />
+	</div>
 </body>
 </html>

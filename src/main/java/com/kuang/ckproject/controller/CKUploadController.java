@@ -13,10 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.kuang.ckproject.utils.FileResponse;
@@ -61,7 +59,7 @@ public class CKUploadController {
 			logger.info("fileSize: " + file.getSize());
 			// 图片大小不超过2M
 			if (file.getSize() > 1024 * 2048) {
-				String error = fileResponse.error(0, "图片大小超过500K");
+				String error = fileResponse.error(0, "图片大小超过2M");
 				out.println(error);
 				return;
 			}
