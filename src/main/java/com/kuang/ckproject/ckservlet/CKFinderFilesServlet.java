@@ -18,6 +18,8 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
+import com.kuang.ckproject.config.Global;
+
 
 /**
  * 查看CK上传的图片
@@ -49,9 +51,9 @@ public class CKFinderFilesServlet extends HttpServlet {
 		}
 		File file = null;
 		if (req.getContextPath().equals("")) {
-			file = new File("D:/" + filepath);
+			file = new File(Global.getCkBaseDir() + filepath);
 		} else {
-			file = new File("D:/" + userfilesPath + filepath);
+			file = new File(Global.getCkBaseDir() + userfilesPath + filepath);
 		}
 
 		Exception exception = null;

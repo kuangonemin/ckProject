@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import com.kuang.ckproject.config.Global;
 import com.kuang.ckproject.utils.FileResponse;
 import com.kuang.ckproject.utils.FileUtils;
 
@@ -37,7 +38,7 @@ public class CKUploadController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	/* * 上传图片文件夹 */
-	private static final String UPLOAD_PATH = "D:/userfiles/images/";
+	private static final String UPLOAD_PATH = "/userfiles/images/";
 
 	@RequestMapping("/uploadImg.htm")
 	public void uplodaImg(HttpServletRequest request, HttpServletResponse response) {
@@ -64,7 +65,7 @@ public class CKUploadController {
 				return;
 			}
 			String proName = request.getContextPath();
-			String path = UPLOAD_PATH;
+			String path = Global.getCkBaseDir() + UPLOAD_PATH;
 			String fileName = file.getOriginalFilename();
 			String uploadContentType = file.getContentType();
 			String expandedName = "";
@@ -84,7 +85,7 @@ public class CKUploadController {
 			DateFormat df = new SimpleDateFormat(DEFAULT_SUB_FOLDER_FORMAT_AUTO);
 			fileName = df.format(new Date()) + expandedName;
 			FileUtils.uploadFile(file.getBytes(), path, fileName);
-			String success = fileResponse.success(1, fileName, proName + "/userfiles/images/" + fileName, null);
+			String success = fileResponse.success(1, fileName, proName + UPLOAD_PATH + fileName, null);
 			out.println(success);
 			return;
 		} catch (Exception e) {
