@@ -18,7 +18,7 @@
 		<cglib.version>3.2.5</cglib.version>
 		<springframework.version>4.3.10.RELEASE</springframework.version>
 		<slf4j.version>1.7.25</slf4j.version>
-		<jsoup.version>1.9.2</jsoup.version>
+		<jsoup.version>1.14.2</jsoup.version>
 		<metadata-extractor.version>2.9.1</metadata-extractor.version>
 		<velocity.version>1.7</velocity.version>
 		<velocity.tools.version>2.0</velocity.tools.version>
